@@ -1,0 +1,9 @@
+[all]
+# rhel 7
+#ec2-34-245-101-200.eu-west-1.compute.amazonaws.com ansible_user=ec2-user
+# rhel6
+#ec2-54-77-165-105.eu-west-1.compute.amazonaws.com ansible_user=ec2-user
+# ubuntu 18.10
+#ec2-52-211-28-56.eu-west-1.compute.amazonaws.com ansible_user=ubuntu
+# win
+63.32.47.119 ansible_user=Administrator ansible_password=";)xwqby;K&*YsHHQ-WwRJM35Z@T;62)9" ansible_port=5986 ansible_connection=winrm ansible_winrm_server_cert_validation=ignore 

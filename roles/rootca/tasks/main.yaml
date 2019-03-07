@@ -1,0 +1,9 @@
+- include: redhat.yaml
+  when: ansible_os_family == "RedHat"
+
+- include: ubuntu.yaml
+  when: ansible_os_family == "Debian"
+
+- include: windows.yaml
+  when: ansible_os_family == "Windows"
+

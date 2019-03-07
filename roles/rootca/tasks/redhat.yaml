@@ -1,0 +1,12 @@
+- name: check self-signed cacert folder 
+  file:
+    path: /etc/pki/ca-trust/source/anchors
+    state: directory
+  become: true
+
+- name: install root ca  
+  copy:
+    src: "{{ root_ca }}"
+    dest: "/etc/pki/ca-trust/source/anchors/{{ root_ca | basename }}"
+  notify: reload certs redhat
+  become: true

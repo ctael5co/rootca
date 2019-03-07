@@ -1,0 +1,13 @@
+- name: reload certs redhat
+  listen: reload certs redhat
+  command: update-ca-trust extract
+  become: true
+
+- name: enable ca store
+  listen: reload certs redhat
+  command: update-ca-trust enable
+  become: true
+
+- name: reload certs ubuntu
+  command: update-ca-certificates
+  become: true

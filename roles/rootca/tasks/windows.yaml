@@ -1,0 +1,19 @@
+#- name: check ca folder exists
+#  file:
+#    path: /usr/local/share/ca-certificates
+#    state: directory
+
+- name: install root ca
+  win_copy:
+    src: "{{ root_ca }}"
+    dest: C:\Users\Administrator\{{ root_ca | basename }}
+  register: result
+  become: no
+
+- name: import a certificate
+  win_certificate_store:
+    path: C:\Users\Administrator\{{ root_ca | basename }}
+    state: present
+    store_name: Root 
+    store_location: LocalMachine
+

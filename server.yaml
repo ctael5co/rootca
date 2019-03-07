@@ -1,0 +1,6 @@
+- hosts: all
+  become: no
+  vars:
+    root_ca: ca.crt
+  roles:
+    - rootca

@@ -1,0 +1,21 @@
+- name: instal ca-certs and python for ansible
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+  - python 
+  - ca-certificates
+  become: true
+
+- name: check ca folder exists
+  file:
+    path: /usr/local/share/ca-certificates
+    state: directory
+
+- name: install root ca
+  copy:
+    src: "{{ root_ca }}"
+    dest: "/usr/local/share/ca-certificates/{{ root_ca | basename }}"
+  notify: reload certs ubuntu
+  become: true
+
